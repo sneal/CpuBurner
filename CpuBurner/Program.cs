@@ -10,7 +10,8 @@ namespace CpuBurner
     /// Adapted from http://stackoverflow.com/questions/2514544/simulate-steady-cpu-load-and-spikes
     /// </summary>
 	class Program
-	{
+    {
+        volatile static bool keepRunning = true;
         static void Main(string[] args)
         {
             Console.WriteLine("Starting CPU burn");
@@ -30,11 +31,8 @@ namespace CpuBurner
 
             // let threads run for specfied amount of time, then abort
             Thread.Sleep(runTime);
+            keepRunning = false;
             Console.WriteLine("Completed CPU burn, press any key to exit");
-            foreach (var t in threads)
-            {
-                t.Abort();
-            }
 
             // just wait forever
             Console.ReadLine();
@@ -46,7 +44,7 @@ namespace CpuBurner
             {
                 Stopwatch watch = new Stopwatch();
                 watch.Start();
-                while (true)
+                while (keepRunning)
                 {
                     if (watch.ElapsedMilliseconds > (int)cpuUsage)
                     {
