@@ -2,7 +2,7 @@
 applications:
 - name: cpuburner
   memory: 256m
-  stack: windows2016
+  stack: windows2012R2
   buildpack: binary_buildpack
   health-check-type: process
   path: CpuBurner\bin\Release\net4.5\win81-x64\publish
