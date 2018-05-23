@@ -1,0 +1,13 @@
+---
+applications:
+- name: cpuburner
+  memory: 256m
+  stack: cflinuxfs2
+  buildpack: dotnet_core_buildpack
+  health-check-type: process
+  path: CpuBurner/bin/Release/netcoreapp1.1/ubuntu.14.04-x64/publish
+  command: ./CpuBurner
+  no-route: true
+  env:
+    CPU_USAGE_PERCENTAGE: 25
+    RUN_TIME_IN_SECONDS: 360
