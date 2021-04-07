@@ -2,7 +2,7 @@
 applications:
 - name: cpuburner
   memory: 256m
-  stack: cflinuxfs2
+  stack: cflinuxfs3
   buildpack: dotnet_core_buildpack
   health-check-type: process
   path: CpuBurner/bin/Release/netcoreapp1.1/ubuntu.14.04-x64/publish
