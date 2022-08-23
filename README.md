@@ -8,6 +8,10 @@ Simple .NET 4.5 and .NET Core 1.0 console applications that will eat CPU time on
 
 By default the console application will consume 25% of each CPU core for 5 minutes. On an environment with 4 cores you should see close to 100% CPU usage. 25% + 25% + 25% + 25% = 100%.
 
+### Docker
+
+docker run --cpu-shares 4096 --env RUN_TIME_IN_SECONDS=60 --env CPU_USAGE_PERCENTAGE=100 cpuburner:latest
+
 ## Configuration
 
 Edit the manifest-*.yml that you use to push to adjust the percentage of CPU usage and run length:
